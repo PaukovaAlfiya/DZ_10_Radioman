@@ -223,6 +223,17 @@ public class RadioTest {
     }
 
     @Test
+    public void shouleSetRadio_101_Volume() {
+        Radio radio = new Radio();
+        radio.setVolume(101);
+
+        int expected = 0;
+        int actual = radio.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouleSetRadioMinusOneVolume() {
         Radio radio = new Radio();
         radio.setVolume(-1);
