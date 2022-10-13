@@ -5,6 +5,14 @@ public class Radio {
     protected int currentRadioStation; //поле - текущая станция
     protected int currentVolume; // поле - текущая громкость
 
+    public Radio() {
+
+    }
+
+    public Radio(int stationCount) {
+
+    }
+
     public int getRadioStationNumber() {
         return currentRadioStation;
     }

@@ -96,11 +96,11 @@ public class RadioTest {
     @Test
     public void switchToNextStation() {
         Radio radio = new Radio();
-        radio.setCurrentRadioStation(6);
+        radio.setCurrentRadioStation(8);
 
         radio.nextRadioStation();
 
-        int expected = 7;
+        int expected = 9;
         int actual = radio.getRadioStationNumber();
 
         Assertions.assertEquals(expected, actual);
