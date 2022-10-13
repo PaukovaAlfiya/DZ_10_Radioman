@@ -4,12 +4,25 @@ public class Radio {
 
     protected int currentRadioStation; //поле - текущая станция
     protected int currentVolume; // поле - текущая громкость
+    protected int maxRadioStation;
+    protected int maxVolume;
+
+    public Radio() {
+        this.maxRadioStation = 9;
+        this.maxVolume = 100;
+    }
+
+    public Radio(int stationCount, int volumeCount) {
+        this.maxRadioStation = stationCount - 1;
+        this.maxVolume = volumeCount;
+    }
 
     public int getRadioStationNumber() {
         return currentRadioStation;
     }
 
     public int getCurrentVolume() {
+
         return currentVolume;
     }
 
@@ -17,24 +30,24 @@ public class Radio {
         if (currentRadioStation < 0) {
             return;
         }
-        if (currentRadioStation > 9) {
+        if (currentRadioStation > maxRadioStation) {
             return;
         }
         this.currentRadioStation = currentRadioStation;
     }
 
     public void setVolume(int currentVolume) {
-        if (currentVolume < 0) {
+        if (currentVolume <= 0) {
             return;
         }
-        if (currentVolume > 10) {
+        if (currentVolume > maxVolume) {
             return;
         }
         this.currentVolume = currentVolume;
     }
 
     public void nextRadioStation() {
-        if (currentRadioStation < 9) {
+        if (currentRadioStation < maxRadioStation) {
             currentRadioStation++;
         } else {
             currentRadioStation = 0;
@@ -42,10 +55,10 @@ public class Radio {
     }
 
     public void nextVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < maxVolume) {
             currentVolume++;
         } else {
-            currentVolume = 0;
+            currentVolume = 100;
         }
     }
 
@@ -53,7 +66,7 @@ public class Radio {
         if (currentRadioStation > 0) {
             currentRadioStation--;
         } else {
-            currentRadioStation = 9;
+            currentRadioStation = maxRadioStation;
         }
     }
 
@@ -61,7 +74,7 @@ public class Radio {
         if (currentVolume > 0) {
             currentVolume--;
         } else {
-            currentVolume = 10;
+            currentVolume = 0;
         }
     }
 }
